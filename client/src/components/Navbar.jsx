@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 
 export default function Navbar() {
   return (
-    <section className='text-blue-950 ml-12 flex items-center justify-center'>
+    <section className='text-black-950 ml-12 flex items-center justify-center'>
         <div className='flex font-sans text-xl '>
 
         <div>
