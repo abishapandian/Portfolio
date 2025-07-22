@@ -8,7 +8,8 @@ export default function About() {
     return (
 
         <motion.section
-            className='p-10 flex justify-around mt-4 relative bg-amber-100'
+        id='about'
+            className='p-10 flex justify-around mt-4 relative bg-orange-100'
             whileHover={{ opacity: 1, scaleX: 1 }}>
 
             <img src={abi} className='w-sm relative' />
@@ -37,12 +38,12 @@ export default function About() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1 }}
-                        className='text-5xl text-black-950 font-medium mt-10'
+                        className='text-4xl text-black-950 font-medium mt-10'
                     >
                         Building innovative<span className='text-orange-400 ml-2'>Web Applications</span><br />with the latest technologies.
                     </motion.h1>
                     <motion.p
-                        className='text-black-950 mt-10 text-xl'
+                        className='text-black-950 mt-10 text-lg'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1.5, delay: 0.5 }}
@@ -52,7 +53,7 @@ export default function About() {
                         and user-friendly solutions.
                     </motion.p>
                 </div>
-                <div className="mt-10 text-2xl">
+                <div className="mt-10 text-xl">
                     <div className='flex'>
                         <motion.p
                             className='text-black-950'
