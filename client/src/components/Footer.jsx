@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 px-6 -mt-50">
+    <footer className="bg-gray-900 text-gray-300 py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Logo / Name */}
         <div className="text-2xl font-bold tracking-wide text-white">

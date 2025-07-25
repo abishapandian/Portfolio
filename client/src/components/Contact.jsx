@@ -21,14 +21,14 @@ export default function ContactSection() {
     setForm({ email: '', phone: '', package: '', date: '', message: '' });
   };
 
-  // Slow floating input variant
+  // Inputs fade in sequentially with increasing delays
   const inputVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: 3.5 + i * 0.8, // input reveal delay
+        delay: 6.5 + i * 1.5, // each input has 1.5s more than the previous
         duration: 1.5,
         ease: 'easeOut',
       },
@@ -37,20 +37,21 @@ export default function ContactSection() {
 
   return (
     <motion.section
-    id='contact'
+      id="contact"
       className="min-h-screen bg-gradient-to-br from-orange-50 to-white py-20 px-4 md:px-16"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 2.5, duration: 3.5 }}
+      transition={{ delay: 4.5, duration: 3.5 }}
     >
       <Toaster position="top-right" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        {/* LEFT */}
+        
+        {/* Left content */}
         <motion.div
           initial={{ x: -120, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 3, duration: 3, ease: 'easeOut' }}
+          transition={{ delay: 5, duration: 3, ease: 'easeOut' }}
         >
           <p className="text-orange-500 font-semibold text-sm tracking-wide mb-2">📍 Contact Me</p>
           <h2 className="text-5xl font-extrabold text-gray-900 leading-tight mb-10">
@@ -77,15 +78,14 @@ export default function ContactSection() {
           </div>
         </motion.div>
 
-        {/* RIGHT */}
+        {/* Right form */}
         <motion.form
           onSubmit={handleSubmit}
           className="bg-white/40 backdrop-blur-lg border border-white/20 rounded-2xl p-8 shadow-2xl"
           initial={{ x: 120, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 3, duration: 3, ease: 'easeOut' }}
+          transition={{ delay: 5.5, duration: 3, ease: 'easeOut' }}
         >
-          {/* Email & Phone */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.div className="relative" custom={0} variants={inputVariant} initial="hidden" animate="visible">
               <input
@@ -118,7 +118,6 @@ export default function ContactSection() {
             </motion.div>
           </div>
 
-          {/* Package & Date */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <motion.div className="relative" custom={2} variants={inputVariant} initial="hidden" animate="visible">
               <select
@@ -145,7 +144,6 @@ export default function ContactSection() {
             </motion.div>
           </div>
 
-          {/* Message */}
           <motion.div className="mt-6" custom={4} variants={inputVariant} initial="hidden" animate="visible">
             <textarea
               name="message"
@@ -157,7 +155,6 @@ export default function ContactSection() {
             ></textarea>
           </motion.div>
 
-          {/* Submit */}
           <motion.div
             className="mt-6"
             whileHover={{ scale: 1.05 }}

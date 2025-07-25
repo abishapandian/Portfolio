@@ -30,6 +30,7 @@ export default function Skills({ onComplete }) {
 
   useEffect(() => {
     const run = async () => {
+      await delay(4000);  // Increased delay before starting animation
       await controls.start('visible');
       await delay(2000);
       if (onComplete) onComplete();
@@ -40,7 +41,7 @@ export default function Skills({ onComplete }) {
   return (
     <motion.section
       id='skills'
-      className="py-20 px-6 bg-gradient-to-br from-white to-orange-200 text-black font-sans rounded-3xl shadow-xl mx-4 md:mx-20"
+      className="py-20 px-6 bg-gradient-to-br  from-white to-orange-200 text-black font-sans rounded-3xl shadow-xl mx-4 md:mx-20"
       initial="hidden"
       animate={controls}
       variants={container}
@@ -85,7 +86,6 @@ export default function Skills({ onComplete }) {
           <FaDownload />
           Download CV
         </a>
-
       </motion.div>
     </motion.section>
   );
