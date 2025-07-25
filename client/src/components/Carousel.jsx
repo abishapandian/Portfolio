@@ -5,13 +5,25 @@ import abi from '../assets/abi.png'
 import frame from '../assets/frame.png'
 import { FaDownload } from 'react-icons/fa';
 
+const headingVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.4, // stagger by index
+      duration: 0.6
+    }
+  })
+}
+
 export default function Carousel({ onComplete }) {
   const controls = useAnimation()
 
   useEffect(() => {
     const sequence = async () => {
       await controls.start({ opacity: 1, x: 0, transition: { duration: 1 } })
-      await delay(2000)
+      await delay(3000) // increased delay for reading text
       onComplete()
     }
     sequence()
@@ -24,31 +36,58 @@ export default function Carousel({ onComplete }) {
       initial={{ opacity: 0, x: -50 }}
       animate={controls}
     >
-      {/* Text Left Section */}
+      {/* Left Section */}
       <div className='mt-16 max-w-lg'>
-        <h1 className='font-bold text-xl text-black-950'>I'm glad You're Here</h1>
-        <h1 className='font-bold text-5xl text-black-950 mt-10'>
-          Hi I’m ABISHA, <br />
-          <span className='text-orange-400'>Bringing Innovation</span><br />
-          to Life with Code
-        </h1>
-        <p className='text-black-950 text-sm mt-10 leading-relaxed'>
+        <motion.h1
+          className='font-bold text-xl text-black-950'
+          custom={0}
+          initial="hidden"
+          animate="visible"
+          variants={headingVariants}
+        >
+          I'm glad You're Here
+        </motion.h1>
+
+        <motion.h1
+          className='font-bold text-5xl text-black-950 mt-10'
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.span custom={1} variants={headingVariants} className="block">Hi I’m ABISHA,</motion.span>
+          <motion.span custom={2} variants={headingVariants} className="block text-orange-400">Bringing Innovation</motion.span>
+          <motion.span custom={3} variants={headingVariants} className="block">to Life with Code</motion.span>
+        </motion.h1>
+
+        <motion.p
+          className='text-black-950 text-sm mt-10 leading-relaxed'
+          custom={4}
+          initial="hidden"
+          animate="visible"
+          variants={headingVariants}
+        >
           I'm a dedicated React, Node.js, and Express.js developer,
           passionate about solving complex problems through clean, scalable code.
           I specialize in building dynamic web applications with
           MySQL for efficient database management. I’m committed to continuous learning and
           bringing innovative ideas to life through clean, maintainable code.
-        </p>
-        <div className='py-10'>
-        <a
-                  href="/ABISHA_RESUME.pdf"
-                  download
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition duration-300"
-                >
-                  <FaDownload />
-                  Download CV
-                </a>
-      </div>
+        </motion.p>
+
+        <motion.div
+          className='py-10'
+          custom={5}
+          initial="hidden"
+          animate="visible"
+          variants={headingVariants}
+        >
+          <a
+            href="/ABISHA_RESUME.pdf"
+            download
+            className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-semibold rounded-full shadow-md hover:bg-orange-600 transition duration-300"
+          >
+            <FaDownload />
+            Download CV
+          </a>
+        </motion.div>
       </div>
 
       {/* Right Image Section */}

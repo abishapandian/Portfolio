@@ -11,7 +11,7 @@ export default function Navbar() {
 
         {/* Left - Phone */}
         <div className='font-bold text-sm md:text-base'>
-          <a href="#contact" className='hover:underline cursor-pointer'>+91 9344464762</a>
+          <a href="#contact" className='hover:underline cursor-pointer'>📞+91 9344464762</a>
         </div>
 
         {/* Center - Navigation Links */}
